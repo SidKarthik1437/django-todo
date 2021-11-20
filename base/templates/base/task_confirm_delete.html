@@ -1,0 +1,29 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+    <a href="{% url 'tasks' %}" class="btn btn-danger mt-2" role="button">
+        <svg
+            class="align-middle"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-chevron-left"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </a>
+
+<p class="text-white fs-2">Are you sure you want to delete the following task? <br>" {{ task }} "</p>
+
+<form method="POST" class="text-light pb-3">
+    {% csrf_token %}
+    <input type="submit" value="delete" class="btn bg-white text-danger" />
+</form>
+{% endblock content %}
